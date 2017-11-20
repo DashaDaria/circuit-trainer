@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120081612) do
+ActiveRecord::Schema.define(version: 20171120112430) do
 
   create_table "circuits", force: :cascade do |t|
     t.string "name"
     t.integer "duration"
     t.string "difficulty"
     t.integer "user_id"
+  end
+
+  create_table "circuits_exercises", id: false, force: :cascade do |t|
+    t.integer "circuit_id", null: false
+    t.integer "exercise_id", null: false
+    t.index ["circuit_id"], name: "index_circuits_exercises_on_circuit_id"
+    t.index ["exercise_id"], name: "index_circuits_exercises_on_exercise_id"
   end
 
   create_table "exercises", force: :cascade do |t|
