@@ -7,5 +7,5 @@ end
 use Rack::MethodOverride
 # use CircuitController
 # use ExerciseController
-# use UserController
+use UserController
 run ApplicationController

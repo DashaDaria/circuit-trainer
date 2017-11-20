@@ -1,0 +1,11 @@
+<h1>Hi, <%= @user.username%> </h1>
+
+<% @circuits.each.with_index(1) do |circuit, index| %>
+<p><%= index%>.
+   <%= circuit.name %> - <%= circuit.duration %> - <%= circuit.difficulty %>
+</p>
+<%end%>
+
+<form>
+<input type="button" value="Log Out" onclick="window.location.href = '/logout'"/>
+</form>
