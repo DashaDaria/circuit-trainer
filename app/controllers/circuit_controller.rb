@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class CircuitController < ApplicationController
 
   get '/circuits' do
     if logged_in?

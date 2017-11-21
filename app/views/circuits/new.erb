@@ -1,0 +1,13 @@
+<h1>Create Your Circuit Here</h1>
+<form action="/circuits" method="POST">
+  <input type="text" name="circuit[name]" placeholder="Circuit Name">
+  <br></br>
+  <input type="number" name="circuit[duration]" style="width: 7em" placeholder="Minutes" max="100" min="1">
+  <br></br>
+  <%Circuit.all.each do |circuit|%>
+  <input type="checkbox" name="circuit[difficulty]" value="<%=circuit.difficulty%>" id="<%=circuit.difficulty%>">
+  <%=circuit.difficulty%>
+  <%end%>
+  <br></br>
+	<input type="submit" value="Create" id ="submit">
+</form>

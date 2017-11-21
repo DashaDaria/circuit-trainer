@@ -5,7 +5,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
-# use CircuitController
-# use ExerciseController
+use CircuitController
+use ExerciseController
 use UserController
 run ApplicationController

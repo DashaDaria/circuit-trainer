@@ -1,0 +1,37 @@
+<h1>All Exercises by category</h1>
+
+<h3>UPPER BODY</h3>
+<% Exercise.all.each do |exercise| %>
+  <% if exercise.target == "upper body"%>
+    <ul>
+      <li><a href="/exercises/<%=exercise.id%>"><%= exercise.name %></a></li>
+    </ul>
+  <%end%>
+<%end%>
+
+<h3>CORE</h3>
+<% Exercise.all.each do |exercise| %>
+  <% if exercise.target == "core"%>
+    <ul>
+      <li><a href="/exercises/<%=exercise.id%>"><%= exercise.name %></a></li>
+    </ul>
+    <%end%>
+<%end%>
+
+<h3>LOWER BODY</h3>
+<% Exercise.all.each do |exercise| %>
+  <% if exercise.target == "lower body"%>
+    <ul>
+      <li><a href="/exercises/<%=exercise.id%>"><%= exercise.name %></a></li>
+    </ul>
+    <%end%>
+<%end%>
+
+<h3>FULL BODY</h3>
+<% Exercise.all.each do |exercise| %>
+  <% if exercise.target == "full body"%>
+    <ul>
+      <li><a href="/exercises/<%=exercise.id%>"><%= exercise.name %></a></li>
+    </ul>
+    <%end%>
+<%end%>
