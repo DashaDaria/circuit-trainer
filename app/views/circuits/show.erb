@@ -1,0 +1,18 @@
+<h1><%=@circuit.name%> - <%=@circuit.difficulty%> - <%=@circuit.duration%> minutes</h1>
+<p>Perform 10-15 reps of each exercise. Repeat each circuit between 2-3 times.</p>
+
+<h3>EXERCISES:</h3>
+<% @circuit.exercises.each do |exercise| %>
+  <p><%= exercise.name %> - <%= exercise.target %></p>
+  <p><%= exercise.instruction %></p>
+  <%end%>
+
+  <form>
+  <input type="button" value="All Circuits" onclick="window.location.href = '/circuits'"/>
+  <input type="button" value="Edit Circuit" onclick="window.location.href = '/circuits/<%=@circuit.slug%>/edit'"/>
+  </form>
+
+  <form method="post" action="/circuits/<%=@circuit.slug%>/delete">
+  <input type="hidden" id="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Circuit" id="submit">
+</form>
