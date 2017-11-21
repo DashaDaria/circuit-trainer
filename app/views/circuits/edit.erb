@@ -13,7 +13,7 @@
   <label>Difficulty: </label>
   <select name="circuit[difficulty]" id="difficulty">
     <option value="beginner">Beginner</option>
-    <option value="intermidiate" selected>Intermidiate</option>
+    <option value="intermediate" selected>Intermediate</option>
     <option value="advanced">Advanced</option>
   </select>
   <br></br>
@@ -23,7 +23,7 @@
   <% Exercise.all.each do |exercise| %>
     <% if exercise.target == "upper body"%>
     <input type="checkbox" name="exercises[]" value="<%=exercise.id%>" id="<%=exercise.name%>" <%='checked' if @circuit.exercise_ids.include?(exercise.id)%>>
-    <%= exercise.name %></input>
+    <%= exercise.name.titleize %></input>
     <%end%>
   <%end%>
 
@@ -31,7 +31,7 @@
   <% Exercise.all.each do |exercise| %>
     <% if exercise.target == "core"%>
     <input type="checkbox" name="exercises[]" value="<%=exercise.id%>" id="<%=exercise.name%>" <%='checked' if @circuit.exercise_ids.include?(exercise.id)%>>
-    <%= exercise.name %></input>
+    <%= exercise.name.titleize %></input>
       <%end%>
   <%end%>
 
@@ -39,7 +39,7 @@
   <% Exercise.all.each do |exercise| %>
     <% if exercise.target == "lower body"%>
     <input type="checkbox" name="exercises[]" value="<%=exercise.id%>" id="<%=exercise.name%>"<%='checked' if @circuit.exercise_ids.include?(exercise.id)%>>
-    <%= exercise.name %></input>
+    <%= exercise.name.titleize %></input>
       <%end%>
   <%end%>
 
@@ -47,7 +47,7 @@
   <% Exercise.all.each do |exercise| %>
     <% if exercise.target == "full body"%>
     <input type="checkbox" name="exercises[]" value="<%=exercise.id%>" id="<%=exercise.name%>"<%='checked' if @circuit.exercise_ids.include?(exercise.id)%>>
-    <%= exercise.name %></input>
+    <%= exercise.name.titleize %></input>
       <%end%>
   <%end%>
 

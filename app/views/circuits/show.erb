@@ -1,9 +1,9 @@
-<h1><%=@circuit.name%> - <%=@circuit.difficulty%> - <%=@circuit.duration%> minutes</h1>
+<h1><%=@circuit.name.titleize%> - <%=@circuit.difficulty.titleize%> - <%=@circuit.duration%> minutes</h1>
 <p>Perform 10-15 reps of each exercise. Repeat each circuit between 2-3 times.</p>
 
 <h3>EXERCISES:</h3>
 <% @circuit.exercises.each.with_index(1) do |exercise, index| %>
-  <p><%=index%>. <%= exercise.name %> - <%= exercise.target %></p>
+  <p><%=index%>. <%= exercise.name.titleize %> - <%= exercise.target.titleize %></p>
   <ul>
     <li><%= exercise.instruction %></li>
   </ul>

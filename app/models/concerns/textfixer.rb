@@ -1,4 +1,4 @@
-module Slugifiable
+module Textfixer
 
   module ClassMethods
     def find_by_slug(slug)
@@ -11,5 +11,4 @@ module Slugifiable
       self.name.gsub(" ", "-").downcase
     end
   end
-
 end
