@@ -46,8 +46,8 @@ class UserController < ApplicationController
     end
   end
 
-  get '/users/:slug' do
-    @user = User.find_by_slug(params:slug)
+  get '/users/:id' do
+    @user = User.find_by(params:id)
     @circuits = @user.circuits
     erb :'circuits/circuits'
   end

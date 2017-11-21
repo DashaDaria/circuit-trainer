@@ -2,7 +2,7 @@
 
 <% @user.circuits.each.with_index(1) do |circuit, index| %>
   <p><%= index%>.
-   <a href="/circuits/<%=circuit.id%>">
+   <a href="/circuits/<%=circuit.slug%>">
    <%= circuit.name %></a></p>
    <ul>
       <li>Time in min: <%= circuit.duration %></li>

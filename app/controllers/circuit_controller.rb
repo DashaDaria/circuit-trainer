@@ -23,9 +23,18 @@ class CircuitController < ApplicationController
       @circuit.exercise_ids = params[:exercises]
       current_user.circuits << @circuit
       @circuit.save
-      redirect "/circuits/#{@circuit.slug}"
+      redirect "/circuits"
     else
       redirect '/circuits/new'
+    end
+  end
+
+  get '/circuits/:slug' do
+    if logged_in?
+      @circuit = Circuit.find_by_slug(params[:slug])
+      erb :'circuits/show'
+    else
+      redirect '/login'
     end
   end
 
@@ -51,10 +60,11 @@ class CircuitController < ApplicationController
     end
   end
 
-  get '/circuits/:slug' do
-    if logged_in?
-      @circuit = Circuit.find_by_slug(params[:slug])
-      erb :'circuits/show'
+  delete '/circuits/:slug/delete' do
+    @circuit = Circuit.find_by_slug(params[:slug])
+    if logged_in? && @circuit.user_id == current_user.id
+        @circuit.delete
+        redirect '/circuits'
     else
       redirect '/login'
     end
