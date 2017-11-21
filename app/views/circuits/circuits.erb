@@ -1,0 +1,18 @@
+<h1>Welcome, <%= @user.username%> </h1>
+
+<% @user.circuits.each.with_index(1) do |circuit, index| %>
+  <p><%= index%>.
+   <a href="/circuits/<%=circuit.id%>">
+   <%= circuit.name %></a></p>
+   <ul>
+      <li>Time in min: <%= circuit.duration %></li>
+      <li>Difficulty: <%= circuit.difficulty %></li>
+    </ul>
+
+<%end%>
+
+<form>
+<input type="button" value="Log Out" onclick="window.location.href = '/logout'"/>
+<input type="button" value="Create a Circuit" onclick="window.location.href = '/circuits/new'"/>
+<input type="button" value="Exercise List" onclick="window.location.href = '/exercises'"/>
+</form>
