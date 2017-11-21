@@ -3,5 +3,6 @@ class Circuit < ActiveRecord::Base
   include Slugifiable::InstanceMethods
 
   belongs_to :user
-  has_and_belongs_to_many :exercises
+  has_many :circuit_exercises
+  has_many :exercises, through: :circuit_exercises
 end
