@@ -11,10 +11,11 @@
   <br></br>
 
   <label>Difficulty: </label>
-  <%Circuit.all.each do |circuit|%>
-  <input type="checkbox" name="circuit[difficulty]" value="<%=circuit.difficulty%>" id="<%=circuit.difficulty%>">
-  <%=circuit.difficulty%>
-  <%end%>
+  <select name="circuit[difficulty]" id="difficulty">
+    <option value="beginner">Beginner</option>
+    <option value="intermidiate" selected>Intermidiate</option>
+    <option value="advanced">Advanced</option>
+  </select>
   <br></br>
 
   <label>Exercises (3 exercises per circuit is best practice): </label>

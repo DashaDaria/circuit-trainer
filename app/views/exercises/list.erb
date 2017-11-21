@@ -4,7 +4,7 @@
 <% Exercise.all.each do |exercise| %>
   <% if exercise.target == "upper body"%>
     <ul>
-      <li><a href="/exercises/<%=exercise.id%>"><%= exercise.name %></a></li>
+      <li><a href="/exercises/<%=exercise.slug%>"><%= exercise.name %></a></li>
     </ul>
   <%end%>
 <%end%>
@@ -13,7 +13,7 @@
 <% Exercise.all.each do |exercise| %>
   <% if exercise.target == "core"%>
     <ul>
-      <li><a href="/exercises/<%=exercise.id%>"><%= exercise.name %></a></li>
+      <li><a href="/exercises/<%=exercise.slug%>"><%= exercise.name %></a></li>
     </ul>
     <%end%>
 <%end%>
@@ -22,7 +22,7 @@
 <% Exercise.all.each do |exercise| %>
   <% if exercise.target == "lower body"%>
     <ul>
-      <li><a href="/exercises/<%=exercise.id%>"><%= exercise.name %></a></li>
+      <li><a href="/exercises/<%=exercise.slug%>"><%= exercise.name %></a></li>
     </ul>
     <%end%>
 <%end%>
@@ -31,7 +31,7 @@
 <% Exercise.all.each do |exercise| %>
   <% if exercise.target == "full body"%>
     <ul>
-      <li><a href="/exercises/<%=exercise.id%>"><%= exercise.name %></a></li>
+      <li><a href="/exercises/<%=exercise.slug%>"><%= exercise.name %></a></li>
     </ul>
     <%end%>
 <%end%>

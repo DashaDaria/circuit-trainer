@@ -45,10 +45,4 @@ class UserController < ApplicationController
       redirect '/'
     end
   end
-
-  get '/users/:id' do
-    @user = User.find_by(params:id)
-    @circuits = @user.circuits
-    erb :'circuits/circuits'
-  end
 end

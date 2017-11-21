@@ -29,15 +29,6 @@ class CircuitController < ApplicationController
     end
   end
 
-  get '/circuits/:slug' do
-    if logged_in?
-      @circuit = Circuit.find_by_slug(params[:slug])
-      erb :'circuits/show'
-    else
-      redirect '/login'
-    end
-  end
-
   get '/circuits/:slug/edit' do
     if logged_in?
       @circuit = Circuit.find_by_slug(params[:slug])
@@ -49,25 +40,29 @@ class CircuitController < ApplicationController
   end
 
   patch '/circuits/:slug' do
-    @circuit = Circuit.find_by_slug(params[:slug])
-    if @circuit.user_id = current_user.id && !params[:circuit][:name].empty?
+      @circuit = Circuit.find_by_slug(params[:slug])
       @circuit.update(params[:circuit])
       @circuit.exercise_ids = params[:exercises]
       @circuit.save
       redirect "/circuits/#{@circuit.slug}"
+  end
+
+  get '/circuits/:slug' do
+    if logged_in?
+      @circuit = Circuit.find_by_slug(params[:slug])
+      erb :'circuits/show'
     else
-      redirect "/circuits/#{@circuit.slug}/edit"
+      redirect '/login'
     end
   end
 
   delete '/circuits/:slug/delete' do
     @circuit = Circuit.find_by_slug(params[:slug])
-    if logged_in? && @circuit.user_id == current_user.id
+    if logged_in?
         @circuit.delete
         redirect '/circuits'
     else
       redirect '/login'
     end
   end
-
 end
