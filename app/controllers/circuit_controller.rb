@@ -17,5 +17,25 @@ class CircuitController < ApplicationController
     end
   end
 
+  post '/circuits' do
+    if !params[:circuit][:name].empty?
+      @circuit = Circuit.create(name: params[:circuit][:name], duration: params[:circuit][:duration], difficulty: params[:circuit][:difficulty])
+      @circuit.exercise_ids = params[:exercises]
+      current_user.circuits << @circuit
+      @circuit.save
+      redirect "/circuits/#{@circuit.slug}"
+    else
+      redirect '/circuits/new'
+    end
+  end
+
+  get '/circuits/:slug' do
+    if logged_in?
+      @circuit = Circuit.find_by_slug(params[:slug])
+      erb :'circuits/show'
+    else
+      redirect '/login'
+    end
+  end
 
 end
