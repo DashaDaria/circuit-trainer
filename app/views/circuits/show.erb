@@ -2,9 +2,11 @@
 <p>Perform 10-15 reps of each exercise. Repeat each circuit between 2-3 times.</p>
 
 <h3>EXERCISES:</h3>
-<% @circuit.exercises.each do |exercise| %>
-  <p><%= exercise.name %> - <%= exercise.target %></p>
-  <p><%= exercise.instruction %></p>
+<% @circuit.exercises.each.with_index(1) do |exercise, index| %>
+  <p><%=index%>. <%= exercise.name %> - <%= exercise.target %></p>
+  <ul>
+    <li><%= exercise.instruction %></li>
+  </ul>
   <%end%>
 
   <form>

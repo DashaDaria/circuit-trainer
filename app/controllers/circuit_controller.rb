@@ -29,6 +29,28 @@ class CircuitController < ApplicationController
     end
   end
 
+  get '/circuits/:slug/edit' do
+    if logged_in?
+      @circuit = Circuit.find_by_slug(params[:slug])
+      @user = current_user
+      erb :'circuits/edit'
+    else
+      redirect '/login'
+    end
+  end
+
+  patch '/circuits/:slug' do
+    @circuit = Circuit.find_by_slug(params[:slug])
+    if @circuit.user_id = current_user.id && !params[:circuit][:name].empty?
+      @circuit.update(params[:circuit])
+      @circuit.exercise_ids = params[:exercises]
+      @circuit.save
+      redirect "/circuits/#{@circuit.slug}"
+    else
+      redirect "/circuits/#{@circuit.slug}/edit"
+    end
+  end
+
   get '/circuits/:slug' do
     if logged_in?
       @circuit = Circuit.find_by_slug(params[:slug])

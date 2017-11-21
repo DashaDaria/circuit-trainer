@@ -1,0 +1,55 @@
+<h1>Edit Your Circuit</h1>
+<form action="/circuits/<%=@circuit.slug%>" method="POST">
+<input id = "hidden" type = "hidden" name = "_method" value = "patch">
+
+  <label>Name: </label>
+  <input type="text" name="circuit[name]" placeholder="Circuit Name" value="<%= @circuit.name%>" id="<%= @circuit.name%>">
+  <br></br>
+
+  <label>Duration: </label>
+  <input type="number" name="circuit[duration]" style="width: 7em" placeholder="Minutes" max="100" min="1" value="<%= @circuit.duration%>" id="<%= @circuit.duration%>">
+  <br></br>
+
+  <label>Difficulty: </label>
+  <%Circuit.all.each do |circuit|%>
+  <input type="checkbox" name="circuit[difficulty]" value="<%=circuit.difficulty%>" id="<%=circuit.difficulty%>">
+  <%=circuit.difficulty%>
+  <%end%>
+  <br></br>
+
+  <label>Exercises (3 exercises per circuit is best practice): </label>
+  <h5>UPPER BODY</h5>
+  <% Exercise.all.each do |exercise| %>
+    <% if exercise.target == "upper body"%>
+    <input type="checkbox" name="exercises[]" value="<%=exercise.id%>" id="<%=exercise.name%>" <%='checked' if @circuit.exercise_ids.include?(exercise.id)%>>
+    <%= exercise.name %></input>
+    <%end%>
+  <%end%>
+
+  <h5>CORE</h5>
+  <% Exercise.all.each do |exercise| %>
+    <% if exercise.target == "core"%>
+    <input type="checkbox" name="exercises[]" value="<%=exercise.id%>" id="<%=exercise.name%>" <%='checked' if @circuit.exercise_ids.include?(exercise.id)%>>
+    <%= exercise.name %></input>
+      <%end%>
+  <%end%>
+
+  <h5>LOWER BODY</h5>
+  <% Exercise.all.each do |exercise| %>
+    <% if exercise.target == "lower body"%>
+    <input type="checkbox" name="exercises[]" value="<%=exercise.id%>" id="<%=exercise.name%>"<%='checked' if @circuit.exercise_ids.include?(exercise.id)%>>
+    <%= exercise.name %></input>
+      <%end%>
+  <%end%>
+
+  <h5>FULL BODY</h5>
+  <% Exercise.all.each do |exercise| %>
+    <% if exercise.target == "full body"%>
+    <input type="checkbox" name="exercises[]" value="<%=exercise.id%>" id="<%=exercise.name%>"<%='checked' if @circuit.exercise_ids.include?(exercise.id)%>>
+    <%= exercise.name %></input>
+      <%end%>
+  <%end%>
+
+  <br></br>
+	<input type="submit" value="Edit" id ="submit">
+</form>
