@@ -5,6 +5,7 @@ class CircuitController < ApplicationController
       @user = current_user
     erb :'circuits/circuits'
     else
+      flash [:message] = "Please login."
       redirect '/login'
     end
   end
