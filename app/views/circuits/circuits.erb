@@ -1,7 +1,5 @@
 <h1>Welcome, <%= @user.username.titleize%>!</h1>
 <p>Here you can see a list of available exercises and create or track your own circuits based on your desired goals.</p>
-<p>Strength circuits are two, or more, strength training exercises where the targeted number repetitions are challenging to complete (typically between 65-75% of one rep max, or 10-15 reps).</p> 
-<p>Start your workouts with a short warm up (5-7 min) and conclude with stretching.</p>
 
 <% @user.circuits.each.with_index(1) do |circuit, index| %>
   <p><%= index%>.

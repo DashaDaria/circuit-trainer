@@ -37,16 +37,22 @@ class CircuitController < ApplicationController
       @user = current_user
       erb :'circuits/edit'
     else
+      flash[:message] = "Please login."
       redirect '/login'
     end
   end
 
   patch '/circuits/:slug' do
+    if !params[:circuit][:name].empty?
       @circuit = Circuit.find_by_slug(params[:slug])
       @circuit.update(params[:circuit])
       @circuit.exercise_ids = params[:exercises]
       @circuit.save
       redirect "/circuits/#{@circuit.slug}"
+    else
+      flash[:message] = "A circuit needs to have a name. Try again!"
+      redirect "/circuits"
+    end
   end
 
   get '/circuits/:slug' do
