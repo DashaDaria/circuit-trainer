@@ -10,15 +10,15 @@ Specs:
 - [x] Ensure that users can't modify content created by other users
       Created helper methods to ensure a user is logged in to have access to CRUD
 - [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
-      Circuits have appropriate routs to perform basic CRUD
+      Circuits have appropriate routes to perform basic CRUD
 - [x] Include user input validations
       Circuits need to have a name to be created.
 - [x] Display validation failures to user with error message (example form URL e.g. /posts/new)
-      Circuits need to have a name and users must be logged in to see content - flash messages appear with both. 
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+      Circuits need to have a name and users must be logged in to see content - flash messages appear with both.
+- [x] README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
-- [ ] You have a large number of small Git commits
-- [ ] Your commit messages are meaningful
-- [ ] You made the changes in a commit that relate to the commit message
-- [ ] You don't include changes in a commit that aren't related to the commit message
+- [x] You have a large number of small Git commits - 32 to date
+- [x] Your commit messages are meaningful - example: "added flash messages"
+- [x] You made the changes in a commit that relate to the commit message
+- [x] You don't include changes in a commit that aren't related to the commit message
