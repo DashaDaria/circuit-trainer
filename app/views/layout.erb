@@ -1,14 +1,12 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Circuit Trainer</title>
 </head>
 <body>
-  <% flash.keys.each do |type| %>
-  <div data-alert class="flash <%= type %> alert-box radius">
-    <%= flash[type] %>
-    <a href="#" class="close">&times;</a>
-  </div>
+<% if flash.has?(:message) %>
+   <%= flash[:message].colorize(:red)%>
 <% end %>
 	<%= yield %>
 </body>

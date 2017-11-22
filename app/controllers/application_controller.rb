@@ -9,12 +9,11 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "password_security"
     set :public_folder, 'public'
     set :views, 'app/views'
-    use Rack::Flash
+    use Rack::Flash, :sweep => true
 
   end
 
   get '/' do
-     = "Hooray, Flash is working!"
     erb :index
   end
 
