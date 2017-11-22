@@ -3,7 +3,7 @@
 
 <h3>EXERCISES:</h3>
 <% @circuit.exercises.each.with_index(1) do |exercise, index| %>
-  <p><%=index%>. <%= exercise.name.titleize %> - <%= exercise.target.titleize %></p>
+  <p><%=index%>. <a href="/exercises/<%=exercise.slug%>"><%= exercise.name.titleize %> - <%= exercise.target.titleize %></a></p>
   <ul>
     <li><%= exercise.instruction %></li>
   </ul>
