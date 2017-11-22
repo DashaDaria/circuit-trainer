@@ -5,9 +5,13 @@
 	<title>Circuit Trainer</title>
 </head>
 <body>
-<% if flash.has?(:message) %>
-   <%= flash[:message].colorize(:red)%>
-<% end %>
+
+  <% if flash.has?(:message) %>
+    <p style="color:red;"><%= flash[:message] %></p>
+  <% end %>
+  <p>
+
+
 	<%= yield %>
 </body>
 </html>
