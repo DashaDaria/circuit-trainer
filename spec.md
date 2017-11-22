@@ -12,7 +12,9 @@ Specs:
 - [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
       Circuits have appropriate routs to perform basic CRUD
 - [x] Include user input validations
-- [ ] Display validation failures to user with error message (example form URL e.g. /posts/new)
+      Circuits need to have a name to be created.
+- [x] Display validation failures to user with error message (example form URL e.g. /posts/new)
+      Circuits need to have a name and users must be logged in to see content - flash messages appear with both. 
 - [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm

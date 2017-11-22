@@ -26,6 +26,7 @@ class CircuitController < ApplicationController
       @circuit.save
       redirect "/circuits"
     else
+      flash[:message] = "A circuit needs to have a name."
       redirect '/circuits/new'
     end
   end
@@ -53,6 +54,7 @@ class CircuitController < ApplicationController
       @circuit = Circuit.find_by_slug(params[:slug])
       erb :'circuits/show'
     else
+      flash[:message] = "Please login."
       redirect '/login'
     end
   end
@@ -63,6 +65,7 @@ class CircuitController < ApplicationController
         @circuit.delete
         redirect '/circuits'
     else
+      flash[:message] = "Please login."
       redirect '/login'
     end
   end

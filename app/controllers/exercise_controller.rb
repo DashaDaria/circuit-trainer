@@ -4,6 +4,7 @@ class ExerciseController < ApplicationController
     if logged_in?
       erb :'/exercises/list'
     else
+      flash[:message] = "Please login."
       redirect '/login'
     end
   end
@@ -13,9 +14,8 @@ class ExerciseController < ApplicationController
       @exercise = Exercise.find_by_slug(params[:slug])
       erb :'/exercises/show'
     else
+      flash[:message] = "Please login."
       redirect '/login'
     end
   end
-
-
 end

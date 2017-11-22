@@ -27,7 +27,7 @@ class UserController < ApplicationController
   end
 
   post '/login' do
-    user = User.find_by(:username => params[:username]) || User.find_by(:email => params[:email])
+    user = User.find_by(:username => params[:username]) 
 
     if user && user.authenticate(params[:password])
       session[:id] = user.id
