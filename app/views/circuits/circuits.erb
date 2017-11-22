@@ -2,6 +2,7 @@
   <%= flash[:message] %>
 <% end %>
 
+
 <h1>Welcome, <%= @user.username.titleize%>!</h1>
 
 <% @user.circuits.each.with_index(1) do |circuit, index| %>
