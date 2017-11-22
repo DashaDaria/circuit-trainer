@@ -28,7 +28,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/. This
 This Web Application is available as open source under the terms of the MIT License.
 
 ##  Further Development
-Additional features to be developed in the future will include:
+In addition to front-end development, other features to be developed in the future will include:
   1. 'Coach Reviews' - a tool that reviews user's circuits and provides feedback based on desired goals
   3. 'Ultimate Workouts' - another layer that allows users to create a full workout by adding multiple circuits together.
   2. Warm Up and Cool Down - an additional library of exercises that can bookend a workout  
