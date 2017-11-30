@@ -7,7 +7,12 @@
 <br>
 <!-- Note Form Here -->
 <br>
-<form action="/exercises/<%= @exercise.slug %>/notes" method="post">
+<form action="/exercises/<%= @exercise.slug %>" method="post">
   <input type="text" name="note[content]" placeholder="Your Note">
   <input type="submit" value="Save Note" id="submit">
 </form>
+
+<% @notes.each.with_index(1) do |note, index| %>
+    <p><%=index %>.
+    <%= note.content %> - posted by: <%= note.user.username.titleize %></p>
+    <%end%>

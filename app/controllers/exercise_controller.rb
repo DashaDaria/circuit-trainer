@@ -7,6 +7,7 @@ class ExerciseController < ApplicationController
   get '/exercises/:slug' do
     if logged_in?
       @exercise = Exercise.find_by_slug(params[:slug])
+      @notes = @exercise.notes
       erb :'/exercises/show'
     else
       redirect to '/exercises'
