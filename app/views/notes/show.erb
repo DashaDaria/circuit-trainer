@@ -1,6 +1,6 @@
 <% @notes.each.with_index(1) do |note, index| %>
     <p><%=index %>.
-    <%= note.content %></p>
+    <%= note.content %> - posted by: <%= note.user.username.titleize %></p>
     <%end%>
 
 

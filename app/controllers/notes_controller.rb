@@ -6,7 +6,7 @@ class NotesController < ApplicationController
         @exercise.notes.create(content: params[:note][:content], user: current_user)
         redirect to "/exercises/#{@exercise.slug}/notes"
       else
-        redirect to '/excercises'
+        redirect to '/exercises'
       end
     end
   end
@@ -17,7 +17,7 @@ class NotesController < ApplicationController
       @notes = @exercise.notes
       erb :'notes/show'
     else
-      redirect to '/excercises'
+      redirect to '/exercises'
     end
   end
 end
