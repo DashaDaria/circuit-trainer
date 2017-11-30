@@ -22,7 +22,7 @@ class UserController < ApplicationController
     if logged_in?
       redirect '/circuits'
     else
-      redirect to '/'
+      erb :'users/login'
     end
   end
 
