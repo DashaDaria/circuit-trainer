@@ -2,7 +2,12 @@
 <p><%= @exercise.instruction %></p>
 
 
-  <form>
-  <input type="button" value="All Exercises" onclick="window.location.href = '/exercises'"/>
-  <input type="button" value="Your Circuits" onclick="window.location.href = '/circuits'"/>
-  </form>
+<input type="button" value="All Exercises" onclick="window.location.href = '/exercises'"/>
+<input type="button" value="Your Circuits" onclick="window.location.href = '/circuits'"/>
+
+<!-- Note Form Here -->
+<br>
+<form action="/exercises/<%= @exercise.slug %>/notes" method="post">
+  <input type="text" name="note[content]" placeholder="Your Note">
+  <input type="submit" value="Save Note" id="submit">
+</form>

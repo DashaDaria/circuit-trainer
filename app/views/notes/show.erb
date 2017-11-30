@@ -1,0 +1,10 @@
+<% @notes.each.with_index(1) do |note, index| %>
+    <p><%=index %>.
+    <%= note.content %></p>
+    <%end%>
+
+
+  <form>
+  <input type="button" value="All Exercises" onclick="window.location.href = '/exercises'"/>
+  <input type="button" value="Your Circuits" onclick="window.location.href = '/circuits'"/>
+  </form>

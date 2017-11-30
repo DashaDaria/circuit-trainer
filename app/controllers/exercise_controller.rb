@@ -1,5 +1,4 @@
 class ExerciseController < ApplicationController
-
   get '/exercises' do
     if logged_in?
       erb :'/exercises/list'

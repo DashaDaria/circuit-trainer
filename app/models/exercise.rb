@@ -5,4 +5,5 @@ class Exercise < ActiveRecord::Base
   has_many :circuit_exercises
   has_many :circuits, through: :circuit_exercises
   has_many :users, through: :circuits
+  has_many :notes
 end

@@ -6,6 +6,8 @@ end
 
 use Rack::MethodOverride
 use ExerciseController
+use NotesController
 use UserController
 use CircuitController
+
 run ApplicationController
